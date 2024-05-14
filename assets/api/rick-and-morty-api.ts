@@ -4,10 +4,10 @@ import {Nullable} from '../types/Nullable';
 export class RickAndMortyApi {
   constructor(private instance: AxiosInstance) {}
 
-  public getCharacters(params?: ParamsType) {
+  public async getCharacters(params?: ParamsType) {
     return this.instance
-      .get<ResponseType<CharacterType>>("/character", { params })
-      .then((res) => res.data);
+        .get<ResponseType<CharacterType>>('/character', {params})
+        .then((res) => res.data);
   }
 
   public getCharacter(id: string) {

@@ -1,23 +1,20 @@
 import type { AppProps } from 'next/app'
+
 import { ReactElement, ReactNode, useState } from 'react'
+
+import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { NextPage } from 'next'
-import { QueryClient } from '@tanstack/query-core'
-import { Hydrate, QueryClientProvider } from '@tanstack/react-query'
-import { useLoader } from '../assets/hooks/useLoader'
-import '../styles/nprogress.css'
 
-export type NextPageWithLayout<P = {}> = NextPage<P> & {
+export type NextPageWithLayout<P = {}> = {
   getLayout?: (page: ReactElement) => ReactNode
-}
+} & NextPage<P>
 
-type AppPropsWithLayout = AppProps & {
+type AppPropsWithLayout = {
   Component: NextPageWithLayout
-}
+} & AppProps
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const [queryClient] = useState(() => new QueryClient())
-
-  useLoader()
 
   const getLayout = Component.getLayout ?? (page => page)
 

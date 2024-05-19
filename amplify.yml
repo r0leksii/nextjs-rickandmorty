@@ -7,7 +7,7 @@ frontend:
         - pnpm install
     build:
       commands:
-        - pnpm next export
+        - pnpm next build
   artifacts:
     baseDirectory: .next
     files:

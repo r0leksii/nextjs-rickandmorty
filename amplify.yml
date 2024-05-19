@@ -8,6 +8,7 @@ frontend:
     build:
       commands:
         - pnpm next build
+        - pnpm next export
   artifacts:
     baseDirectory: out
     files:

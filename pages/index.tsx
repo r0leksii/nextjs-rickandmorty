@@ -1,19 +1,15 @@
-import Image from 'next/image';
-import {NextPageWithLayout} from './_app';
-import {PageWrapper} from '../components/PageWrapper/PageWrapper';
-import {Header} from '../components/Header/Header';
+import Image from 'next/image'
+
+import { getLayout } from '../components/Layout/BaseLayout/BaseLayout'
+import { PageWrapper } from '../components/PageWrapper/PageWrapper'
+import { NextPageWithLayout } from './_app'
 
 const Home: NextPageWithLayout = () => (
-    <PageWrapper>
-        <Header/>
-        <Image
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-        />
-    </PageWrapper>
-);
+  <PageWrapper>
+    <Image alt={'Next.js Logo'} height={37} priority src={'/next.svg'} width={180} />
+  </PageWrapper>
+)
 
-export default Home;
+Home.getLayout = getLayout
+
+export default Home

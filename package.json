@@ -29,8 +29,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "format": "prettier --write src",
-    "lint": "eslint */ --ext .jsx,.js,.tsx,.ts  --no-error-on-unmatched-pattern --fix && stylelint --fix */{,*/}*.{scss,css} --allow-empty-input",
+    "format": "prettier --write pages/ components/",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --no-error-on-unmatched-pattern --fix pages/ components/ && stylelint '**/*.{css,scss}' --fix --allow-empty-input",
     "start": "next start"
   },
   "version": "0.1.0"

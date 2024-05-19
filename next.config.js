@@ -16,7 +16,6 @@ const nextConfig = {
         protocol: 'https',
       },
     ],
-    unoptimized: true, // Add this line to disable image optimization
   },
   reactStrictMode: true,
 }

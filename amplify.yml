@@ -3,14 +3,23 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
+        - set -x # Enable debugging
+        - curl -I https://registry.npmjs.org # Test network access
+        - curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm@6.16.0
+        - pnpm install
     build:
       commands:
-        - npm run build
+        - pnpm run build
   artifacts:
-    baseDirectory: .next
+    baseDirectory: out
     files:
       - '**/*'
   cache:
     paths:
       - node_modules/**/*
+
+backend:
+  phases:
+    build:
+      commands:
+        - amplifyPush --simple

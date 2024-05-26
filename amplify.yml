@@ -3,16 +3,10 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "Installing pnpm..."
-        - curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm@6.16.0
-        - echo "Verifying pnpm installation..."
-        - pnpm --version
-        - echo "Installing dependencies..."
-        - pnpm install # or pnpm ci if you have a lockfile
+        - npm ci # or pnpm ci if you have a lockfile
     build:
       commands:
-        - echo "Building the project..."
-        - pnpm run build
+        - npm run build
   artifacts:
     baseDirectory: out
     files:
@@ -20,9 +14,3 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
-
-backend:
-  phases:
-    build:
-      commands:
-        - amplifyPush --simple

@@ -14,7 +14,7 @@ frontend:
         - echo "Building the project..."
         - pnpm run build
   artifacts:
-    baseDirectory: out
+    baseDirectory: .next
     files:
       - '**/*'
   cache:

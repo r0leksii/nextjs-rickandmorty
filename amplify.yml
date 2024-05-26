@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci # or pnpm ci if you have a lockfile
+        - npm ci
     build:
       commands:
         - npm run build

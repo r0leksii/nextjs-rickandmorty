@@ -3,21 +3,14 @@ frontend:
   phases:
     preBuild:
       commands:
-        - curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm@6.16.0
-        - pnpm install
+        - pnpm ci
     build:
       commands:
         - pnpm run build
   artifacts:
-    baseDirectory: out
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
     paths:
       - node_modules/**/*
-
-backend:
-  phases:
-    build:
-      commands:
-        - amplifyPush --simple
